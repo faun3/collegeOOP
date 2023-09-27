@@ -11,7 +11,9 @@ int replaceLargestThree(int* arr, int size) {
 		// there are not enough elements in the vector to compute the 3 largest
 		return -1;
 	}
-	int top[3] = { -999, -999, -999};
+	for (int i = 0; i < 3; i++){
+		top[i] = INT_MIN;
+	}
 	// iterate 3 times, can be swapped for n with a bit of effort
 	for (int iter = 0; iter < 3; iter++) {
 		for (int i = 0; i < size; i++) {
@@ -27,6 +29,13 @@ int replaceLargestThree(int* arr, int size) {
 					top[iter] = arr[i];
 				}
 			}
+		}
+	}
+
+	for (int i = 0; i < 3; i++){
+		if (top[i] == INT_MIN) {
+			// there are less than k unique elements in the array
+			return -30;
 		}
 	}
 
