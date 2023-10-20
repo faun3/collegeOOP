@@ -29,6 +29,21 @@ public:
 		}
 	}
 
+	Programator(const Programator& src) {
+		this->nume = src.nume;
+		if (src.nrZileActive > 0 && src.commituriPeZi != nullptr) {
+			this->nrZileActive = src.nrZileActive;
+			this->commituriPeZi = new int[src.nrZileActive];
+			for (int i = 0; i < this->nrZileActive; i++) {
+				this->commituriPeZi[i] = src.commituriPeZi[i];
+			}
+		}
+		else {
+			this->nrZileActive = 0;
+			this->commituriPeZi = nullptr;
+		}
+	}
+
 	void afisare() {
 		cout << "\nNume: " << this->nume << ". Nr zile de activitate: " << this->nrZileActive << ".";
 		if (this->nrZileActive > 0 && this->commituriPeZi != nullptr) {
