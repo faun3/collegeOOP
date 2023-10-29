@@ -26,9 +26,6 @@ public:
 	int getId() {
 		return this->id;
 	}
-	string getSSN() {
-		return this->ssn;
-	}
 };
 
 // without this definition, the program compiles but doesn't link
